@@ -85,6 +85,12 @@ hr {
 .topCloud {
   position: absolute;
   right: 300px;
+  bottom: 650px;
+}
+
+.topCloudWork {
+  position: absolute;
+  right: 300px;
   bottom: 550px;
 }
 
