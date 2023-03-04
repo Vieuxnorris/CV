@@ -85,13 +85,18 @@ hr {
 .topCloud {
   position: absolute;
   right: 300px;
-  bottom: 650px;
+  bottom: 550px;
 }
 
 .bottomCloud {
   position: absolute;
   left: 300px;
   bottom: 315px;
+}
+
+.climbingImg {
+  padding-top: 50px;
+  width: 15%;
 }
 
 .pWork {
