@@ -85,7 +85,7 @@ hr {
 .topCloud {
   position: absolute;
   right: 300px;
-  bottom: 550px;
+  bottom: 650px;
 }
 
 .bottomCloud {
@@ -95,7 +95,7 @@ hr {
 }
 
 .climbingImg {
-  padding-top: 50px;
+  padding-top: 180px;
   width: 15%;
 }
 
