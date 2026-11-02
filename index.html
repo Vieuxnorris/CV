@@ -1,65 +1,308 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Vieuxnorris Site</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- optionel ?v=2 but if webbrowser has cached version -->
-    <link rel="icon" href="./icones/user.ico?v=2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="ongletsBody">
-      <div class="row">
-        <img class="myProfilOnglet" src="./images/julien.png" alt="MyProfil">
-        <a class="linkOnglet" href="./index.html">À propos</a>
-        <a class="linkOnglet" href="./work.html">Projets</a>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Julien Wins — Data Engineer</title>
+  <meta name="description" content="CV de Julien Wins, Data Engineer : batch et streaming sur l'écosystème Cloudera (PySpark, Flink, Kafka), CI/CD modulaire, reverse engineering et assembleur x86-64.">
+  <meta name="author" content="Julien Wins">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfbf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1318" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://vieuxnorris.github.io/CV/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:url" content="https://vieuxnorris.github.io/CV/">
+  <meta property="og:title" content="Julien Wins — Data Engineer">
+  <meta property="og:description" content="Batch et streaming sur l'écosystème Cloudera (PySpark, Flink, Kafka), CI/CD modulaire, reverse engineering et assembleur x86-64.">
+  <meta property="profile:first_name" content="Julien">
+  <meta property="profile:last_name" content="Wins">
+
+  <link rel="icon" href="icones/user.ico">
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    // Applique le thème mémorisé avant le premier rendu (évite un flash de couleurs).
+    (function () {
+      try {
+        var saved = window.localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.setAttribute("data-theme", saved);
+        }
+      } catch (err) {
+        // Stockage indisponible (navigation privée, cookies bloqués) : thème du système.
+      }
+    })();
+  </script>
+  <script src="js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Julien Wins",
+    "givenName": "Julien",
+    "familyName": "Wins",
+    "jobTitle": "Data Engineer",
+    "worksFor": { "@type": "Organization", "name": "Infrabel" },
+    "url": "https://vieuxnorris.github.io/CV/",
+    "email": "mailto:julienwins060597@gmail.com",
+    "sameAs": [
+      "https://github.com/Vieuxnorris",
+      "https://www.linkedin.com/in/julien-wins-805737188/"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "HEH (Haute École en Hainaut)" },
+      { "@type": "EducationalOrganization", "name": "École 42" }
+    ],
+    "knowsLanguage": ["fr", "en"],
+    "knowsAbout": [
+      "Apache Flink", "Apache Kafka", "PySpark", "Apache Hive", "HDFS", "Cloudera",
+      "GitLab CI", "Stonebranch", "Elasticsearch", "Python", "C", "C++", "C#",
+      "x86-64 assembly", "Reverse engineering"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <div class="identity">
+        <h1 class="name">Julien Wins</h1>
+        <p class="role">Data Engineer · Streaming, Big Data, reverse engineering</p>
+        <ul class="contacts">
+          <li><a href="mailto:julienwins060597@gmail.com">julienwins060597@gmail.com</a></li>
+          <li><a href="https://github.com/Vieuxnorris">github.com/Vieuxnorris</a></li>
+          <li><a href="https://www.linkedin.com/in/julien-wins-805737188/">linkedin.com/in/julien-wins-805737188</a></li>
+        </ul>
+      </div>
+      <div class="toolbar" data-js-only hidden>
+        <button type="button" class="btn" id="theme-toggle" aria-pressed="false">Thème sombre</button>
+        <button type="button" class="btn" id="print-cv">Version PDF</button>
       </div>
     </div>
-    <div class="divHeadBody">
-      <img class="topCloud" src="./images/cloud.png" alt="cloudImg1">
-      <h1><em>Je suis Julien</em></h1>
-      <h2>un développeur</h2>
-      <img class="bottomCloud" src="./images/cloud.png" alt="cloudImg2">
-      <img src="./images/mountain.png" alt="mountainImg">
-    </div>
-    <div class="divMidBody">
-      <div class="profile">
-        <img class="myProfil" src="./images/julien.png" alt="MyProfil">
-        <h2>Bonjour.</h2>
-        <p>Je suis un développeur Python passionné par la création d'applications web et de scripts pour automatiser des tâches. J'ai une expertise en traitement de données avec Pandas et Numpy, ainsi qu'en intégration de bases de données comme MySQL. Je suis également à l'aise avec le frameworks Flask pour créer des applications web réactives et dynamiques. Mon objectif est de créer du code propre et facilement maintenable, tout en collaborant avec des équipes techniques pour proposer des solutions innovantes et efficaces.</p>
-      </div>
-      <hr>
-      <div class="skills">
-        <h2>Mes compétences.</h2>
-        <div class="skill-row">
-          <img class="imgComputer" src="./images/computer.png" alt="computer">
-          <h3>Software Developer</h3>
-          <p>Mes compétences en Python comprennent la création d'applications web, la manipulation et le traitement de données, ainsi que la création de scripts pour automatiser des tâches. J'ai une expérience pratique en traitement de langage naturel et en intelligence artificielle grâce à mon stage de 4 mois chez Actemium. J'ai également travaillé sur divers projets en C et C++, tels que la création de la libft à l'école 42, ainsi que sur des projets de hacking en utilisant l'injection DLL et le code caving sur le jeu Skyrim. Ma capacité à utiliser plusieurs langages de programmation me permet de trouver des solutions créatives pour résoudre des problèmes et de m'adapter rapidement à de nouveaux projets et environnements techniques. Je suis également soucieux de la qualité de mon code et je m'efforce de créer des solutions efficaces et faciles à maintenir.</p>
+  </header>
+
+  <main id="contenu" class="wrap">
+    <section class="section" aria-labelledby="t-resume">
+      <h2 class="section-title" id="t-resume">Résumé</h2>
+      <p class="summary">
+        Data Engineer, trois ans d'expérience sur l'écosystème Cloudera (PySpark, Flink, Kafka, Hive, HDFS),
+        du batch au streaming. Conçoit des architectures CI/CD modulaires de bout en bout (projet Stonebranch).
+        Autodidacte et polyvalent, à l'aise avec les outils d'IA, attaché à l'optimisation des processus comme
+        du code, jusqu'au niveau machine (x86-64, reverse engineering).
+      </p>
+    </section>
+
+    <section class="section band" aria-labelledby="t-competences">
+      <h2 class="section-title" id="t-competences">Compétences techniques</h2>
+      <dl class="skills">
+        <div class="skills__row">
+          <dt>Streaming</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag tag--key">Flink</li>
+              <li class="tag">PyFlink</li>
+              <li class="tag">Kafka</li>
+              <li class="tag">AKHQ</li>
+            </ul>
+          </dd>
         </div>
-        <div class="skill-row">
-          <img class="imgWeb" src="./images/webDev.png" alt="webDev">
-          <h3>Web developer</h3>
-          <p>En ce qui concerne le développement web, je suis à l'aise avec les langages HTML5, CSS et Javascript, ce qui me permet de créer des pages web interactives et réactives. Bien que je n'aie pas une grande expérience dans ce domaine, je suis toujours curieux d'apprendre de nouvelles techniques pour améliorer mes compétences et créer des sites web plus avancés. Je suis également capable de travailler avec des frameworks tels que Bootstrap pour faciliter la création de designs responsives. Ma connaissance des principes de conception de base me permet également de créer des sites web qui sont à la fois esthétiques et conviviaux pour l'utilisateur.</p>
+        <div class="skills__row">
+          <dt>Batch et stockage</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag tag--key">PySpark</li>
+              <li class="tag">AQE</li>
+              <li class="tag">Hive</li>
+              <li class="tag">HDFS</li>
+            </ul>
+          </dd>
         </div>
+        <div class="skills__row">
+          <dt>Plateforme</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">Cloudera</li>
+              <li class="tag">YARN</li>
+              <li class="tag">OpenShift</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>Gouvernance et sécurité</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">Collibra</li>
+              <li class="tag">Ranger</li>
+              <li class="tag">Kerberos</li>
+              <li class="tag">Vault</li>
+              <li class="tag">traçabilité des pipelines</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>Observabilité</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">Elasticsearch</li>
+              <li class="tag">Logstash</li>
+              <li class="tag">Kibana</li>
+              <li class="tag">Filebeat</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>CI/CD et orchestration</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">GitLab CI</li>
+              <li class="tag">Stonebranch</li>
+              <li class="tag">Ansible</li>
+              <li class="tag">tests unitaires logiciel et infra</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>Architecture</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">CI/CD modulaire de bout en bout</li>
+              <li class="tag">templates de pipeline batch/streaming</li>
+              <li class="tag">auto-merge</li>
+              <li class="tag">sécurité de release</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>Langages</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">Python</li>
+              <li class="tag">C</li>
+              <li class="tag">C++</li>
+              <li class="tag">C#</li>
+              <li class="tag tag--key">assembleur x86-64</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>Bas niveau et reverse engineering</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">reverse engineering</li>
+              <li class="tag">Ghidra</li>
+              <li class="tag">hooking</li>
+              <li class="tag">débogage au niveau CPU</li>
+              <li class="tag">performance CPU (cycles, branchements)</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="skills__row">
+          <dt>IA et machine learning</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">reinforcement learning (PPO récurrent)</li>
+              <li class="tag">MCTS</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="section" aria-labelledby="t-experience">
+      <h2 class="section-title" id="t-experience">Expérience professionnelle</h2>
+      <article class="job">
+        <div class="job__head">
+          <h3 class="job-title">Data Engineer — Infrabel, équipe Big Data Services</h3>
+          <p class="meta">2023 — présent</p>
+        </div>
+        <ul class="bullets">
+          <li><strong>Migré</strong> le pipeline BMS de PySpark batch vers PyFlink streaming sur YARN, avec lancement via GitLab CI.</li>
+          <li><strong>Automatisé</strong> la gestion des groupes LDAP/AD de la pile ELK avec Python et Ansible/GitLab CI.</li>
+        </ul>
+
+        <h4 class="sub">Projet Stonebranch — architecture CI/CD modulaire</h4>
+        <ul class="bullets">
+          <li><strong>Conçu</strong> une architecture CI/CD modulaire de bout en bout, avec une séparation logique entre dépendances, contrôleur global et sécurité de release.</li>
+          <li><strong>Sécurisé</strong> les releases par un contrôle des tags entre pipelines.</li>
+          <li><strong>Automatisé</strong> le merge (auto-merge) et la création de pipelines à partir de templates batch ou streaming, selon la technologie.</li>
+          <li><strong>Masqué</strong> la complexité entre la pipeline et les runtimes, outils et dépendances : l'équipe consomme un template sans connaître le détail.</li>
+          <li><strong>Centralisé</strong> chaque variable dans Vault : plus aucun secret ni paramètre sensible dans le code ou les pipelines.</li>
+          <li><strong>Mis en place</strong> des tests unitaires logiciels et infrastructure, exécutés dans la pipeline avant toute release.</li>
+        </ul>
+
+        <h4 class="sub">Gouvernance et observabilité</h4>
+        <ul class="bullets">
+          <li><strong>Cadré</strong> les besoins en outils de gouvernance, d'observabilité et de traçabilité des pipelines, puis <strong>réalisé</strong> ces outils.</li>
+          <li><strong>Développé</strong> une librairie qui automatise et simplifie l'utilisation des connecteurs PySpark.</li>
+          <li><strong>Intégré</strong> l'activation d'AQE (Adaptive Query Execution) dans cette librairie : Spark réajuste son plan d'exécution à partir des tailles réelles des données (fusion des petites partitions, choix de jointure, jointures asymétriques).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section" id="projets" aria-labelledby="t-projets">
+      <h2 class="section-title" id="t-projets">Projets personnels</h2>
+
+      <div class="project-group">
+        <h3 class="group-title">Reverse engineering de moteurs de jeu</h3>
+        <ul class="tags">
+          <li class="tag">C++</li>
+          <li class="tag">DLL injectée</li>
+          <li class="tag">points d'arrêt matériels</li>
+          <li class="tag">lecture d'assembleur</li>
+        </ul>
+        <ul class="projects">
+          <li><span class="project-name">Far Cry 6</span><span class="desc"> — analyse du moteur et hooking via une DLL injectée.</span></li>
+          <li><span class="project-name">Ghost Recon Wildlands</span><span class="desc"> — hooking par points d'arrêt matériels (registres de débogage), sans patcher le code.</span></li>
+        </ul>
       </div>
-      <hr>
-      <div class="contact-me">
-        <h2>Prendre contact</h2>
-        <h3>Si vous êtes intéressé par mon profil.</h3>
-        <p class="contactText">Je suis toujours heureux de discuter avec de nouvelles personnes et d'explorer de nouvelles opportunités professionnelles. Vous pouvez me contacter via les coordonnées mentionnées dans mon CV ou en utilisant les informations disponibles sur mon profil en ligne. J'attends avec impatience de vos nouvelles et suis impatient de discuter avec vous !</p>
-        <a class="btn" href="mailto:julienwins060597@gmail.com">CONTACTEZ MOI</a>
+
+      <div class="project-group">
+        <h3 class="group-title">Éditeurs et trainers de jeu</h3>
+        <ul class="tags">
+          <li class="tag">C#</li>
+          <li class="tag">SMAPI</li>
+          <li class="tag">BepInEx 6</li>
+          <li class="tag">Unity IL2CPP</li>
+        </ul>
+        <ul class="projects">
+          <li><span class="project-name">Stardew Valley Editor</span><span class="desc"> — éditeur de sauvegarde et de règles en direct pour Stardew Valley 1.6, piloté depuis une interface navigateur.</span></li>
+          <li><span class="project-name">Death Must Die Editor</span><span class="desc"> — éditeur d'objets en jeu et réglage du butin (Unity).</span></li>
+          <li><span class="project-name">Jotunn Trainer</span><span class="desc"> — trainer en jeu pour Jotunnslayer: Hordes of Hel, sans passer par la console développeur.</span></li>
+        </ul>
       </div>
-    </div>
-    <div class="divBottomBody">
-      <a class="footer-link" href="https://www.linkedin.com/in/julien-wins-805737188/">LinkedIn</a>
-      <a class="footer-link" href="https://github.com/Vieuxnorris">Github</a>
-      <p class="copyright">© 2023 Vieuxnorris.</p>
-    </div>
-  </body>
+
+      <div class="project-group">
+        <h3 class="group-title">Apprentissage par renforcement et recherche</h3>
+        <ul class="tags">
+          <li class="tag">PPO récurrent</li>
+          <li class="tag">MCTS</li>
+        </ul>
+        <ul class="projects">
+          <li><a class="project-name" href="https://github.com/Vieuxnorris/Dino-Run-Recurrent-PPO">Dino-Run-Recurrent-PPO</a><span class="desc"> — agent PPO récurrent pour Dino Run de Chrome.</span></li>
+          <li><a class="project-name" href="https://github.com/Vieuxnorris/Projet-MK-RL">Projet-MK-RL</a><span class="desc"> — apprentissage par renforcement pour Mortal Kombat.</span></li>
+          <li><a class="project-name" href="https://github.com/Vieuxnorris/ConnectFour_MCTS">ConnectFour_MCTS</a><span class="desc"> — recherche arborescente Monte Carlo pour Puissance 4.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="t-formation">
+      <h2 class="section-title" id="t-formation">Formation</h2>
+      <ul class="education">
+        <li class="job-title">Bachelier en télécommunications et développement — HEH (Haute École en Hainaut)</li>
+        <li class="job-title">École 42 — formation en programmation, pédagogie par projets entre pairs</li>
+      </ul>
+      <p class="languages">Français : langue maternelle. Anglais : niveau intermédiaire.</p>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p class="small">Mis à jour en novembre 2026.</p>
+  </footer>
+</body>
 </html>

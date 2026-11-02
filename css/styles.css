@@ -1,219 +1,676 @@
-/* BODY */
+/* =========================================================================
+   CV — Julien Wins
+   Charte « CV technique » : une colonne, sobre, lisible à l'écran,
+   imprimable en A4. Thème clair par défaut, thème sombre pour l'écran.
+   ========================================================================= */
+
+/* ---- Polices auto-hébergées (IBM Plex, SIL OFL 1.1 : ../fonts/OFL.txt) ---- */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-sans-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2");
+}
+
+/* ---- Jetons de la charte ------------------------------------------------- */
+:root {
+  color-scheme: light dark;
+
+  /* Couleurs — thème clair (papier) */
+  --paper: #fbfbf8;
+  --paper-sunken: #f0f0ea;
+  --ink: #14181f;
+  --ink-muted: #4a5260;
+  --rule: #8a9099;
+  --brand: #0b5d6b;
+  --on-brand: #fff;
+  --accent: #f2b01e;
+  --on-accent: #14181f;
+
+  /* Typographie */
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Espacements */
+  --space-1: 0.25rem;  /*  4px */
+  --space-2: 0.5rem;   /*  8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+
+  /* Formes */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Mise en page */
+  --measure: 50rem;
+  --gutter: var(--space-8);
+}
+
+/* Thème clair forcé par l'utilisateur */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Thème sombre, écran uniquement (l'impression reste toujours en clair) :
+   préférence système, sauf si l'utilisateur a choisi le clair. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --paper: #0f1318;
+    --paper-sunken: #171c23;
+    --ink: #eceff2;
+    --ink-muted: #a3acb8;
+    --rule: #6b7480;
+    --brand: #5cc4d4;
+    --on-brand: #0f1318;
+  }
+}
+
+/* Thème sombre forcé par l'utilisateur, écran uniquement */
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --paper: #0f1318;
+    --paper-sunken: #171c23;
+    --ink: #eceff2;
+    --ink-muted: #a3acb8;
+    --rule: #6b7480;
+    --brand: #5cc4d4;
+    --on-brand: #0f1318;
+  }
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
-  margin: 0px;
-  text-align: center;
-  font-family: "Merriweather", serif;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;  /* body : 14px */
+  line-height: 1.5;     /* 21px */
+  font-weight: 400;
 }
 
-h1 {
-  color: #66BFBF;
-  font-size: 5.625rem;
-  margin: 50px auto 0 auto;
-  font-family: 'Sacramento', cursive;
-  line-height: 2;
-}
-
-h2 {
-  color: #66BFBF;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.5rem;
-  font-weight: normal;
-}
-
-h3 {
-  color: #11999E;
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+dl,
+dd {
+  margin: 0;
 }
 
 a {
-  color: #71C9CE;
-  margin-left: auto 100px auto 100px;
-  text-decoration: none;
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
-p {
-  color: #40514E;
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
-hr {
-  border-style: dotted none none;
-  border-color: #EAF6F6;
-  border-width: 5px;
-  width: 5%;
-  margin: 100px auto 100px auto;
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
-/* ONGLETS */
-.ongletsBody {
-  background-color: #EAF6F6;
-  padding-left: 100px;
-  padding-right: 100px;
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-.row {
-  position: relative;
-  text-align: right;
-  padding-top: 50px;
-  padding-bottom: 10px;
+strong {
+  font-weight: 600;
 }
 
-.myProfilOnglet {
+.wrap {
+  width: 100%;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
   position: absolute;
-  bottom: 5px;
-  left: 80px;
-  border-radius: 50%;
-  width: 5%;
+  left: var(--space-4);
+  top: var(--space-4);
+  z-index: 10;
+  padding: var(--space-2) var(--space-3);
+  background: var(--brand);
+  color: var(--on-brand);
+  border-radius: var(--radius-md);
+  transform: translateY(-200%);
 }
 
-.linkOnglet {
-  padding-right: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
+.skip-link:focus {
+  transform: none;
 }
 
-
-
-/* DIVHEAD */
-
-.divHeadBody {
-  background-color: #EAF6F6;
-  position: relative;
-  padding-top: 100px;
+/* ---- En-tête ------------------------------------------------------------- */
+.masthead {
+  background: var(--paper-sunken);
+  padding-block: var(--space-12) var(--space-6);
 }
 
-.topCloud {
-  position: absolute;
-  right: 300px;
-  bottom: 650px;
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
 }
 
-.bottomCloud {
-  position: absolute;
-  left: 300px;
-  bottom: 315px;
+.name {
+  font-size: 2.5rem;      /* 40px */
+  line-height: 1.1;       /* 44px */
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-.climbingImg {
-  padding-top: 180px;
-  width: 15%;
+.role {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--ink-muted);
 }
 
-.pWork {
-  font-size: 1.5rem;
+.contacts {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  font-size: 0.75rem;     /* small : 12px */
+  line-height: 1.5;
 }
 
-/* END DIVHEAD */
-
-/* DIVMIDBODY */
-
-.divMidBody {
-  position: relative;
-  padding-top: 100px;
-  background-color: white;
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
-.profile {
-  margin: auto 100px auto 100px;
-  line-height: 2;
-}
-
-.myProfil {
-  border-radius: 50%;
-}
-
-.iconeWork {
-  width: 10%;
-}
-
-.skill-row {
-  text-align: left;
-  line-height: 2;
-  margin: auto 100px auto 100px;
-  padding-bottom: 20px;
-}
-
-.workshop-row {
-  text-align: center;
-  line-height: 2;
-  margin: auto 100px auto 100px;
-  padding-bottom: 20px;
-}
-
-.imgComputer {
-  width: 10%;
-  float: left;
-  margin-right: 30px;
-}
-
-.work {
-  width: 10%;
-}
-
-.imgWeb {
-  width: 10%;
-  float: right;
-  margin-left: 30px;
-}
-
-.contact-me {
-  margin: auto 100px auto 100px;
-  line-height: 2;
-}
-
-.contactText {
-  margin-bottom: 50px;
+.toolbar[hidden] {
+  display: none;
 }
 
 .btn {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #66BFBF, #2980b9);
-  background-image: -moz-linear-gradient(top, #66BFBF, #2980b9);
-  background-image: -ms-linear-gradient(top, #66BFBF, #2980b9);
-  background-image: -o-linear-gradient(top, #66BFBF, #2980b9);
-  background-image: linear-gradient(to bottom, #66BFBF, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  min-height: 2.75rem;    /* cible tactile de 44px */
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
+  border-color: var(--brand);
+  color: var(--brand);
 }
 
-/* END DIVMIDBODY */
-
-/* DIVBOTTOMBODY */
-
-.divBottomBody {
-  position: relative;
-  margin-top: 100px;
-  padding-top: 50px;
-  padding-bottom: 30px;
-  background-color: #66BFBF;
+.btn[aria-pressed="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
 }
 
-.footer-link {
-  color: #11999E;
-  padding-left: 20px;
-  padding-right: 20px;
+/* ---- Sections ------------------------------------------------------------ */
+main {
+  padding-block: var(--space-6) var(--space-12);
 }
 
-.copyright {
-  color: #EAF6F6;
-  margin-top: 50px;
+.section + .section {
+  margin-top: var(--space-6);
 }
 
-/* END DIVBOTTOMBODY */
+.section-title {
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;     /* 12px */
+  line-height: 1.333;     /* 16px */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--brand);
+}
 
-/* END BODY */
+.band {
+  padding: var(--space-4);
+  background: var(--paper-sunken);
+  border-radius: var(--radius-md);
+}
+
+.job-title {
+  font-size: 1rem;
+  line-height: 1.375;     /* 22px */
+  font-weight: 600;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.333;
+  color: var(--ink-muted);
+}
+
+.small {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* ---- Compétences --------------------------------------------------------- */
+.skills {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.skills__row {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.skills dt {
+  font-weight: 600;
+}
+
+@media (min-width: 40rem) {
+  .skills__row {
+    grid-template-columns: 12rem 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.tag {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.333;
+  font-weight: 500;
+}
+
+.tag--key {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+
+/* ---- Expérience ---------------------------------------------------------- */
+.job__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.sub {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.bullets {
+  padding-left: 1.1em;
+}
+
+.bullets li + li {
+  margin-top: var(--space-2);
+}
+
+.bullets li::marker {
+  color: var(--ink-muted);
+}
+
+/* ---- Projets personnels -------------------------------------------------- */
+.project-group + .project-group {
+  margin-top: var(--space-4);
+}
+
+.group-title {
+  margin-bottom: var(--space-2);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.projects {
+  margin-top: var(--space-2);
+  padding-left: 1.1em;
+}
+
+.projects li + li {
+  margin-top: var(--space-1);
+}
+
+.projects li::marker {
+  color: var(--ink-muted);
+}
+
+.project-name {
+  font-weight: 600;
+}
+
+/* ---- Formation, langues, pied de page ------------------------------------ */
+.education {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.languages {
+  margin-top: var(--space-3);
+}
+
+.site-footer {
+  padding-block: 0 var(--space-8);
+}
+
+.site-footer p {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule);
+}
+
+/* ---- Petits écrans ------------------------------------------------------- */
+@media (max-width: 30rem) {
+  :root {
+    --gutter: var(--space-4);
+  }
+
+  .masthead {
+    padding-block: var(--space-8) var(--space-4);
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+}
+
+/* ---- Préférences de mouvement -------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .btn,
+  a {
+    transition: color 0.15s ease, border-color 0.15s ease, text-decoration-thickness 0.15s ease;
+  }
+}
+
+/* =========================================================================
+   Impression / export PDF : A4, thème clair, une page visée.
+   ========================================================================= */
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+
+    --paper: #fff;
+    --paper-sunken: #f0f0ea;
+    --ink: #14181f;
+    --ink-muted: #4a5260;
+    --rule: #8a9099;
+    --brand: #0b5d6b;
+    --on-brand: #fff;
+    --gutter: 0;
+  }
+
+  body {
+    font-size: 8.5pt;
+    line-height: 1.32;
+  }
+
+  .skip-link,
+  .toolbar,
+  .site-footer {
+    display: none !important;
+  }
+
+  .masthead,
+  .band,
+  .tag--key {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .masthead {
+    padding: 3.5mm 5mm;
+    border-radius: var(--radius-md);
+  }
+
+  .name {
+    font-size: 21pt;
+    line-height: 1.1;
+  }
+
+  .role {
+    margin-top: 1mm;
+    font-size: 9.5pt;
+  }
+
+  .contacts {
+    margin-top: 1.5mm;
+    font-size: 7.5pt;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  main {
+    padding-block: 3mm 0;
+  }
+
+  .section + .section {
+    margin-top: 2.4mm;
+  }
+
+  .section-title {
+    margin-bottom: 1.5mm;
+    padding-bottom: 0.8mm;
+    font-size: 7.5pt;
+    break-after: avoid;
+  }
+
+  .band {
+    padding: 2.5mm 3mm;
+  }
+
+  .skills {
+    gap: 1mm;
+  }
+
+  .skills__row {
+    grid-template-columns: 38mm 1fr;
+    gap: 3mm;
+  }
+
+  .tags {
+    gap: 0.8mm;
+  }
+
+  .tag {
+    padding: 0 1.2mm;
+    font-size: 7pt;
+    line-height: 1.5;
+  }
+
+  .job-title {
+    font-size: 9.5pt;
+  }
+
+  .job__head {
+    margin-bottom: 1mm;
+    break-after: avoid;
+  }
+
+  .meta {
+    font-size: 7.5pt;
+  }
+
+  .sub {
+    margin-top: 1.8mm;
+    margin-bottom: 0.6mm;
+    font-size: 8.5pt;
+    break-after: avoid;
+  }
+
+  .bullets li,
+  .project-group {
+    break-inside: avoid;
+  }
+
+  .bullets li + li {
+    margin-top: 0.4mm;
+  }
+
+  /* Projets : une ligne par groupe (noms + stack), sans les descriptions. */
+  .project-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.8mm 2mm;
+  }
+
+  .project-group + .project-group {
+    margin-top: 1.2mm;
+  }
+
+  .group-title {
+    margin: 0;
+    font-size: 8.5pt;
+  }
+
+  .group-title::after {
+    content: " :";
+  }
+
+  .projects {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .projects li + li {
+    margin-top: 0;
+  }
+
+  .projects li + li::before {
+    content: "\00a0· ";
+    color: var(--ink-muted);
+  }
+
+  .projects .desc {
+    display: none;
+  }
+
+  .project-group .tags {
+    order: 2;
+  }
+
+  .education {
+    gap: 0.6mm;
+  }
+
+  .education .job-title {
+    font-size: 8.5pt;
+  }
+
+  .languages {
+    margin-top: 1mm;
+  }
+}
