@@ -489,7 +489,7 @@ main {
    ========================================================================= */
 @page {
   size: A4;
-  margin: 12mm 14mm;
+  margin: 10mm 13mm;
 }
 
 @media print {
@@ -554,7 +554,7 @@ main {
   }
 
   .section + .section {
-    margin-top: 2.4mm;
+    margin-top: 2mm;
   }
 
   .section-title {
