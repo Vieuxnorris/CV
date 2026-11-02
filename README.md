@@ -42,3 +42,8 @@ Nom de fichier conseillé : `CV_Wins_Julien_DataEngineer.pdf`.
 
 Le contenu se modifie directement dans `index.html`. Les couleurs, espacements et tailles de texte sont des
 variables CSS en tête de `css/styles.css`.
+
+GitHub Pages sert tous les fichiers avec un cache navigateur de 10 minutes (`Cache-Control: max-age=600`),
+non modifiable. Après une modification de `css/styles.css` ou de `js/main.js`, incrémenter le paramètre
+`?v=` de leur lien dans `index.html` (`styles.css?v=2` → `styles.css?v=3`) : l'URL change, le navigateur
+télécharge la nouvelle version au lieu de réutiliser l'ancienne avec la nouvelle page.
