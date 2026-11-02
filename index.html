@@ -22,7 +22,7 @@
   <link rel="icon" href="icones/user.ico">
   <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v= : à incrémenter à chaque modification du CSS ou du JS (cache de 10 min sur GitHub Pages). -->
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 
   <script>
     // Applique le thème mémorisé avant le premier rendu (évite un flash de couleurs).
@@ -37,7 +37,7 @@
       }
     })();
   </script>
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/main.js?v=3" defer></script>
 
   <script type="application/ld+json">
   {
@@ -260,6 +260,19 @@
         <ul class="projects">
           <li><span class="project-name">Far Cry 6</span><span class="desc"> — analyse du moteur et hooking via une DLL injectée.</span></li>
           <li><span class="project-name">Ghost Recon Wildlands</span><span class="desc"> — hooking par points d'arrêt matériels (registres de débogage), sans patcher le code.</span></li>
+        </ul>
+      </div>
+
+      <div class="project-group">
+        <h3 class="group-title">Programmation bas niveau, du mode utilisateur au noyau</h3>
+        <ul class="tags">
+          <li class="tag">C</li>
+          <li class="tag">C++</li>
+          <li class="tag">assembleur x86-64</li>
+          <li class="tag">format PE</li>
+        </ul>
+        <ul class="projects">
+          <li><a class="project-name" href="https://github.com/Vieuxnorris/ring3-to-ring0">Ring3-to-Ring0</a><span class="desc"> — parcours d'outils écrits en C, C++ et assembleur x86-64, du premier octet lu dans un fichier jusqu'au noyau ; en cours : analyseur de fichiers PE (hexdump, en-têtes PE et COFF).</span></li>
         </ul>
       </div>
 
